@@ -17,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
         getSupportActionBar().hide();
 
         ListView listView = (ListView) findViewById(R.id.listView);
-        ArrayList<String> items = new ArrayList<String>(Arrays.asList("HI", "BYE", "HI", "BYE", "HI", "BYE", "HI", "BYE", "HI", "BYE", "HI", "BYE"));
+        ArrayList<String> items = new ArrayList<String>(Arrays.asList("HI", "BYE", "HI", "BYE", "HI", "BYE", "HI", "BYE", "HI", "BYE", "HI", "BYE","awf","dwfe","wdaf","fwfa","sfawf","sfawf,","awfea"));
 
         ArrayAdapter<String> itemsAdapter =
                 new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, items);
