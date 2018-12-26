@@ -2,11 +2,8 @@ package com.example.chatova.chatova3;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -16,12 +13,16 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         getSupportActionBar().hide();
 
+        // Get listView component by using its ID.
         ListView listView = (ListView) findViewById(R.id.listView);
-        ArrayList<String> items = new ArrayList<String>(Arrays.asList("HI", "BYE", "HI", "BYE", "HI", "BYE", "HI", "BYE", "HI", "BYE", "HI", "BYE","awf","dwfe","wdaf","fwfa","sfawf","sfawf,","awfea"));
 
-        ArrayAdapter<String> itemsAdapter =
-                new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, items);
-
-        listView.setAdapter(itemsAdapter);
+        try {
+            // Run the messages class to get messages from database and store it in ListView.
+            Messages messages = new Messages(listView, this);
+            messages.use();
+        }
+        catch (Exception e){
+            System.out.println(e.getMessage());
+        }
     }
 }
