@@ -17,6 +17,8 @@ Setting up:
   - Server type: Database Engine
   - Server name: Click on arrow -> Browse for more -> Database Engine -> Your server
   - Windows Authentication
+- Open *restore_database.sql* and choose a database name. Then run the file.
+- After running the file, refresh the *Databases* folder to see the new database.
  
 ### Visual Studio
 
