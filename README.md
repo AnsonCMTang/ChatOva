@@ -22,8 +22,8 @@ Setting up:
  
 ### Visual Studio
 
-Install [Visual Studio 2017](https://visualstudio.microsoft.com/) (can be community version): 
-  - Need .NET desktop development
+Install [Visual Studio 2017](https://visualstudio.microsoft.com/) (can be community version) and the following components during installation: 
+  - .NET desktop development
   - ASP.NET and web development
   - .NET Core cross-platform development
 
