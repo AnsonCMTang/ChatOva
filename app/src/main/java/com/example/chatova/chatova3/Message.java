@@ -1,19 +1,28 @@
 package com.example.chatova.chatova3;
 
-public class Message {
-    private String text;
+/**
+ * A wrapper for a message.
+ */
+class Message {
+    private String Text;
     private boolean itsmemario;
 
-    public Message(String text, boolean itsmemario) {
-        this.text = text;
+    Message(String text, boolean itsmemario) {
+        this.Text = text;
         this.itsmemario = itsmemario;
     }
 
-    public String getText() {
-        return text;
+    /**
+     * Get the text stored in this message.
+     */
+    String getText() {
+        return Text;
     }
 
-    public boolean isItsmemario() {
+    /**
+     * IS IT MARIO? OR IS YO MAMA?
+     */
+    boolean isItsmemario() {
         return itsmemario;
     }
 }

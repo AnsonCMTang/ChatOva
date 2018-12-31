@@ -1,24 +1,16 @@
 package com.example.chatova.chatova3;
 
-import android.app.Activity;
-import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
-import android.widget.TextView;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-
 
 public class MainActivity extends AppCompatActivity {
 
-    private EditText editText;
+    private EditText messageText;
+    private MessageAdapter messageAdapter;
+    private ListView messageListView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,24 +18,31 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         getSupportActionBar().hide();
 
+        // Initialising the components of the page.
+        messageText = (EditText) findViewById(R.id.editText);
+        messageAdapter = new MessageAdapter(this);
+        messageListView = (ListView) findViewById(R.id.listView);
 
-        Message message = new Message("hi",true);
-        ListView listView = (ListView) findViewById(R.id.listView);
-        ArrayList<Message> messages = new ArrayList<Message>();
 
-        ArrayAdapter<Message> itemsAdapter =
-                new ArrayAdapter<Message>(this, android.R.layout.simple_list_item_1, messages);
+        // Initial messages that show when logged on
+        Message message1 = new Message("Yo mama so fat",true);
+        Message message2 = new Message("Bye",false);
 
-        listView.setAdapter(itemsAdapter);
+        messageAdapter.add(message1);
+        messageAdapter.add(message2);
 
-        editText = (EditText) findViewById(R.id.editText);
+        messageListView.setAdapter(messageAdapter);
     }
 
-    public void SendMessage(View view){
-        String message = editText.getText().toString();
+    /**
+     * Sends a message.
+     */
+    protected void SendMessage(View view){
+        String message = messageText.getText().toString();
         if (message.length()>0){
+            messageAdapter.add(new Message(message, true));
 
-            editText.getText().clear();
+            messageText.getText().clear();
         }
     }
 }
